@@ -112,7 +112,7 @@ class MyStandardScaler:
 
     def _adjust_df(self, df):
         # called before fitted
-        if self.vars == None:
+        if not self.vars:
             print('Error: My Standard Scaler not fitted yet.')
             return None
         
