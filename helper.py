@@ -127,7 +127,8 @@ class MyStandardScaler:
         self.vars = df.columns
         self.ss.fit(df)
 
-    def transform(self, df):        
+    def transform(self, df):
+        display(self._adjust_df(df))
         _val = self.ss.transform(self._adjust_df(df))
         return pd.DataFrame(_val, columns=self.vars, index=df.index)
     
