@@ -131,7 +131,7 @@ class MyStandardScaler:
     def fit(self, df, use_train=True):
         self.vars = df.columns
         if use_train:
-            self.ss.fit(df.loc[self.train_start, self.train_end])
+            self.ss.fit(df.loc[self.train_start:self.train_end])
         else:
             self.ss.fit(df)
 
