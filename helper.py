@@ -109,10 +109,11 @@ def plot_population(y_true, y_pred, title='Results', flag='plot', anomaly_dateti
 class MyStandardScaler:
     def __init__(self):
         self.ss = StandardScaler()
+        self.vars = []
 
     def _adjust_df(self, df):
         # called before fitted
-        if not self.vars:
+        if not len(self.vars):
             print('Error: My Standard Scaler not fitted yet.')
             return None
         
