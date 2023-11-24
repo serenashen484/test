@@ -123,6 +123,8 @@ class MyStandardScaler:
             return pd.concat([df, dummy], axis=1)
         elif df.shape[1] > len(self.vars):
             return df.iloc[:, :len(self.vars)]
+        else:
+            return df
 
     def fit(self, df):
         self.vars = df.columns
