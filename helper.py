@@ -48,7 +48,7 @@ def calc_rmse_mae(df_true, df_pred):
 
     return results
 
-def plot_population(y_true, y_pred, title='Results', flag='plot', anomaly_datetime=None, anomaly_next_hours=None, save=False, path=''):
+def plot_population(y_true, y_pred, title='Results', flag='plot', anomaly_datetime=None, anomaly_next_hours=None):
     # plot with plotly
     fig = make_subplots(rows=10,
                         cols=1,
@@ -97,11 +97,6 @@ def plot_population(y_true, y_pred, title='Results', flag='plot', anomaly_dateti
                     }
                     )
     fig.show()
-
-    # if save and path:
-    #     fig.write_html(path)
-    # elif save and not path:
-    #     print('Error: No path for saving is provided. Plot not saved.')
     
     return fig
 
