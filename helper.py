@@ -107,9 +107,11 @@ def plot_population(y_true, y_pred, title='Results', flag='plot', anomaly_dateti
 
 # my ss class used for standardize data
 class MyStandardScaler:
-    def __init__(self):
+    def __init__(self, train_start, train_end):
         self.ss = StandardScaler()
         self.vars = []
+        self.train_start = train_start
+        self.train_end = train_end
 
     def _adjust_df(self, df):
         # called before fitted
@@ -126,12 +128,14 @@ class MyStandardScaler:
         else:
             return df
 
-    def fit(self, df):
+    def fit(self, df, use_train=True):
         self.vars = df.columns
-        self.ss.fit(df)
+        if use_train:
+            self.ss.fit(df.loc[self.train_start, self.train_end])
+        else:
+            self.ss.fit(df)
 
     def transform(self, df):
-        display(self._adjust_df(df))
         _val = self.ss.transform(self._adjust_df(df))
         return pd.DataFrame(_val, columns=self.vars, index=df.index)
     
