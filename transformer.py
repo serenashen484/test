@@ -176,7 +176,7 @@ def trans_predict(model, dataset):
             mask_src = (torch.zeros(seq_len_src, seq_len_src)).type(torch.bool)
             mask_src = mask_src.float().to(model.device)
 
-            memory = model._encode(src, src_mark, mask_src)
+            memory = model.encode(src, src_mark, mask_src)
             outputs = src[:, -1:, :]
 
             #ループさせて逐次的に予測する
