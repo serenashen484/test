@@ -137,8 +137,7 @@ class MyStandardScaler:
     def _adjust_df(self, df):
         # called before fitted
         if not len(self.vars):
-            print('Error: My Standard Scaler not fitted yet.')
-            return None
+            raise Exception('Exception: My Standard Scaler not fitted yet.')
         
         # adjust the number of cols of df
         if df.shape[1] < len(self.vars):
