@@ -8,7 +8,7 @@ from torch.utils.data import Dataset
 from torch.nn import TransformerEncoder, TransformerDecoder, TransformerEncoderLayer, TransformerDecoderLayer
 from tqdm.notebook import tqdm
 from TimeFeature import time_features
-from Embedding import *
+from Embedding import DataEmbedding
 
 class TransSequenceDataset(Dataset):
     def __init__(self, dataframe, seq_len_src=56, seq_len_tgt=8, lag_len=1):
