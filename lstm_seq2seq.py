@@ -129,7 +129,7 @@ def lstm_train(model, data_loader):
         output = model(src=src, tgt=input_tgt)
 
         # compute the loss
-        loss = model.criterion(output[:,:,0:self.num_features_pred], tgt[:,:,0:self.num_features_pred])
+        loss = model.criterion(output[:,:,0:model.num_features_pred], tgt[:,:,0:model.num_features_pred])
 
         total_loss.append(loss.cpu().detach())
 
