@@ -133,7 +133,7 @@ def trans_train(model, data_loader):
         input_tgt = torch.cat((src[:,-1:,:],tgt[:,:-1,:]), dim=1)
         input_tgt_mark = torch.cat((src_mark[:,-1:,:],tgt_mark[:,:-1,:]), dim=1)
 
-        mask_src, mask_tgt = create_mask(src, input_tgt)
+        mask_src, mask_tgt = create_mask(src, input_tgt, model.device)
 
         output = model(src=src, tgt=input_tgt, src_mark = src_mark, tgt_mark = input_tgt_mark, mask_src=mask_src, mask_tgt=mask_tgt)
 
