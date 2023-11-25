@@ -103,7 +103,7 @@ def plot_population(y_true, y_pred, title='Results', flag='plot', anomaly_dateti
     
     return fig
 
-class LSTMSequenceDataset(Dataset):
+class SequenceDataset(Dataset):
     def __init__(self, dataframe, seq_len_src=56, seq_len_tgt=8, lag_len=1):
         self.seq_len_src = seq_len_src
         self.lag_len = lag_len
