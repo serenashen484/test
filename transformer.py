@@ -181,7 +181,7 @@ def trans_predict(model, dataset):
 
                 mask_tgt = (generate_square_subsequent_mask(outputs.size(1))).to(model.device)
 
-                output = model._decode(outputs, tgt_mark[:, i:i+1, :], memory, mask_tgt)
+                output = model.decode(outputs, tgt_mark[:, i:i+1, :], memory, mask_tgt)
                 output = model.linear(output)  # output.shape = [バッチサイズ1, ウィンドウサイズi(累積される), 変数]
 
                 # convert predicted dummies to the actual ones
