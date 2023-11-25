@@ -53,7 +53,7 @@ class Transformer(nn.Module):
         dim_feedforward = 512, dropout = 0.1, nhead = 8, freq='h'):
 
         super(Transformer, self).__init__()
-        self.num_features = 
+        self.num_features = num_features
         self.num_features_pred = num_features_pred
         self.device = device
 
