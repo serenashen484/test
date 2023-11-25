@@ -32,7 +32,7 @@ class lstm_seq2seq(nn.Module):
     モデル1：全変数をLSTMに入力し、二層の線型結合層に通して予測値を出力
     '''
 
-    def __init__(self, num_features, hidden_size, num_layers, dropout, batch_size, num_features_pred, device): #, optimizer, scheduler, criterion):
+    def __init__(self, num_features, hidden_size, num_layers, dropout, batch_size, num_features_pred, device):
 
         '''
         : param input_size:     the number of expected features in the input X
