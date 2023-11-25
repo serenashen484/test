@@ -2,7 +2,7 @@ import pandas as pd
 import math
 import torch
 from torch.utils.data import Dataset
-from TimeFeatures import time_features
+from TimeFeature import time_features
 
 class LSTMSequenceDataset(Dataset):
     def __init__(self, dataframe, seq_len_src=56, seq_len_tgt=8, lag_len=1):
