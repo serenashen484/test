@@ -5,6 +5,7 @@ import torch.nn as nn
 from torch.utils.data import Dataset
 from tqdm.notebook import tqdm
 from TimeFeature import time_features
+from Embedding import *
 
 class TransSequenceDataset(Dataset):
     def __init__(self, dataframe, seq_len_src=56, seq_len_tgt=8, lag_len=1):
