@@ -55,6 +55,9 @@ class LSTM(nn.Module):
     def set_optimizer(self, optimizer):
         self.optimizer = optimizer
 
+    def set_criterion(self, criterion):
+        self.criterion = criterion
+
     def forward(self, src):
         batch_size = src.shape[0]
 
@@ -88,7 +91,7 @@ class LSTM(nn.Module):
 
         return x  # x.shape = [batch_size, 1(seq_len), num_features_pred]
     
-def lstm_train(model, data_loader, loss_function):
+def lstm_train(model, data_loader):
     total_losses = []
     model.train()
     for src, tgt in enumerate(data_loader):
@@ -96,7 +99,7 @@ def lstm_train(model, data_loader, loss_function):
         tgt = tgt.to(model.device)
 
         output = model(src)
-        loss = loss_function(output[:,:,0:model.num_features_pred], tgt[:,:,0:model.num_features_pred])
+        loss = model.criterion(output[:,:,0:model.num_features_pred], tgt[:,:,0:model.num_features_pred])
 
         model.optimizer.zero_grad()
         loss.backward()
