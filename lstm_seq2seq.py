@@ -28,7 +28,7 @@ class LSTMSequenceDataset(Dataset):
     def input_size(self):
         return self.df.shape[1]
 
-class lstm_seq2seq(nn.Module):
+class LSTM_seq2seq(nn.Module):
     '''
     train LSTM encoder-decoder and make predictions
     モデル1：全変数をLSTMに入力し、二層の線型結合層に通して予測値を出力
