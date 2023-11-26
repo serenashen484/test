@@ -30,12 +30,12 @@ class LSTMSequenceDataset(Dataset):
 
 # lstm - cat - fc -
 class LSTM(nn.Module):
-    def __init__(self, num_features_pred, num_features, hidden_units, num_layers, device):
+    def __init__(self, num_features, hidden_units, num_layers, num_features_pred, device):
         super().__init__()
-        self.num_features_pred = num_features_pred  # this is the number of features
         self.num_features= num_features
         self.hidden_units = hidden_units
         self.num_layers = num_layers
+        self.num_features_pred = num_features_pred
         self.device = device
 
         self.lstm = nn.LSTM(input_size=self.num_features_pred,
