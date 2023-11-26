@@ -41,7 +41,7 @@ class LSTM_seq2seq(nn.Module):
         : param hidden_size:    the number of features in the hidden state h
         '''
 
-        super(lstm_seq2seq, self).__init__()
+        super(LSTM_seq2seq, self).__init__()
         self.hidden_size = hidden_size
         self.num_layers = num_layers
         self.batch_size= batch_size
