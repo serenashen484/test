@@ -67,7 +67,7 @@ class LSTM(nn.Module):
 def lstm_train(model, data_loader):
     total_losses = []
     model.train()
-    for _, (src, tgt) in data_loader:
+    for src, tgt in data_loader:
         src = src.to(model.device)
         tgt = tgt.to(model.device)
         
