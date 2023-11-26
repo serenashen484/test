@@ -97,9 +97,9 @@ def lstm_predict(model, dataset):
     model.eval()
     with torch.no_grad():   
         all_outputs = torch.Tensor().to(model.device)
-        for t in tqdm(range(len(dataset))):
-            src = dataset[t][0].float().to(model.device)
-            tgt = dataset[t][1].float().to(model.device)
+        for i in tqdm(range(len(dataset))):
+            src = dataset[i][0].float().to(model.device)
+            tgt = dataset[i][1].float().to(model.device)
             
             # add a batch_size 1
             src = src.unsqueeze(0)
